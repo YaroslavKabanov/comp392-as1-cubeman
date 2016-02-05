@@ -71,6 +71,9 @@ var letter2: Mesh;
 var letter3: Mesh;
 var hat: Mesh;
 var hat1: Mesh;
+var mustache: Mesh;
+var mustache1: Mesh;
+var mustache2: Mesh;
 
 
 function init() {
@@ -166,10 +169,45 @@ function init() {
     mouth = new Mesh(cubeGeometry, cubeMaterial);
     mouth.castShadow = true;
     mouth.receiveShadow = true;
-    mouth.position.y = -0.25;
+    mouth.position.y = -0.37;
     mouth.position.x = 0.75;
     mouth.position.z = 0;
     head.add(mouth);
+    
+    // add mustache to the scene 
+    cubeMaterial = new LambertMaterial({color:0x8A3324});
+    cubeGeometry = new CubeGeometry(0.25, 0.25, 1);
+    mustache = new Mesh(cubeGeometry, cubeMaterial);
+    mustache.castShadow = true;
+    mustache.receiveShadow = true;
+    mustache.position.y = 0.27;
+    mustache.position.x = 0;
+    mustache.position.z = 0;
+    mouth.add(mustache);
+    
+      // add mustache to the scene 
+    cubeMaterial = new LambertMaterial({color:0x8A3324});
+    cubeGeometry = new CubeGeometry(0.25, 0.25, 0.25);
+    mustache1 = new Mesh(cubeGeometry, cubeMaterial);
+    mustache1.castShadow = true;
+    mustache1.receiveShadow = true;
+    mustache1.position.y = 0;
+    mustache1.position.x = 0;
+    mustache1.position.z = 0.5;
+    mouth.add(mustache1);
+    
+    
+      // add mustache to the scene 
+    cubeMaterial = new LambertMaterial({color:0x8A3324});
+    cubeGeometry = new CubeGeometry(0.25, 0.25, 0.25);
+    mustache2 = new Mesh(cubeGeometry, cubeMaterial);
+    mustache2.castShadow = true;
+    mustache2.receiveShadow = true;
+    mustache2.position.y = 0;
+    mustache2.position.x = 0;
+    mustache2.position.z = -0.5;
+    mouth.add(mustache2);
+    
     
     // part of letter on the t-shirt added
     cubeMaterial = new LambertMaterial({color:0xFF0FFF});
@@ -284,13 +322,14 @@ function onResize(): void {
 }
     // add control function
 function addControl(controlObject: Control): void {
-    gui.add(controlObject, 'rotationSpeedx', -0.5,0.5);
-    gui.add(controlObject, 'rotationSpeedy', -0.5,0.5);
-    gui.add(controlObject, 'rotationSpeedz', -0.5,0.5);
-    gui.add(controlObject, 'changeColorsToRandom');
-    gui.add(controlObject, 'returnColors');
-    gui.add(controlObject, 'stopRotations');
-    gui.add(controlObject, 'defaultRotations');
+    gui.add(controlObject, 'rotationSpeedx', -0.5,0.5); // change rotation speed by X axe
+    gui.add(controlObject, 'rotationSpeedy', -0.5,0.5); // change rotation speed by Y axe
+    gui.add(controlObject, 'rotationSpeedz', -0.5,0.5); // change rotation speed by Z axe
+    gui.add(controlObject, 'changeColorsToRandom'); // change preseted to random colors of  
+    //all cubes except letter on the t-shirt and face
+    gui.add(controlObject, 'returnColors'); // return cube's color to preseted
+    gui.add(controlObject, 'stopRotations'); // stop cubeman rotation
+    gui.add(controlObject, 'defaultRotations'); // reset default rotation speed
     
 
 }
