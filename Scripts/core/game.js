@@ -56,6 +56,14 @@ var head;
 var cube;
 var rArm;
 var lArm;
+var lEye;
+var rEye;
+var mouth;
+var letter1;
+var letter2;
+var letter3;
+var hat;
+var hat1;
 function init() {
     // Instantiate a new Scene object
     scene = new Scene();
@@ -85,6 +93,86 @@ function init() {
     head.position.y = 3;
     head.position.x = 0.25;
     cube.add(head);
+    // add left eye to the scene
+    cubeMaterial = new LambertMaterial({ color: 0x000000 });
+    cubeGeometry = new CubeGeometry(0.25, 0.25, 0.25);
+    lEye = new Mesh(cubeGeometry, cubeMaterial);
+    lEye.castShadow = true;
+    lEye.receiveShadow = true;
+    lEye.position.y = 0.5;
+    lEye.position.x = 0.75;
+    lEye.position.z = 0.5;
+    head.add(lEye);
+    // right eye
+    cubeMaterial = new LambertMaterial({ color: 0x000000 });
+    cubeGeometry = new CubeGeometry(0.25, 0.25, 0.25);
+    rEye = new Mesh(cubeGeometry, cubeMaterial);
+    rEye.castShadow = true;
+    rEye.receiveShadow = true;
+    rEye.position.y = 0.5;
+    rEye.position.x = 0.75;
+    rEye.position.z = -0.5;
+    head.add(rEye);
+    // add hat part to the scene
+    cubeMaterial = new LambertMaterial({ color: 0xFF0000 });
+    cubeGeometry = new CubeGeometry(2, 0.2, 2);
+    hat = new Mesh(cubeGeometry, cubeMaterial);
+    hat.castShadow = true;
+    hat.receiveShadow = true;
+    hat.position.y = 1;
+    hat.position.x = 0.25;
+    hat.position.z = 0;
+    head.add(hat);
+    // add hat part to the scene
+    cubeMaterial = new LambertMaterial({ color: 0xFF0000 });
+    cubeGeometry = new CubeGeometry(1.5, 1, 2);
+    hat1 = new Mesh(cubeGeometry, cubeMaterial);
+    hat1.castShadow = true;
+    hat1.receiveShadow = true;
+    hat1.position.y = 1.60;
+    hat1.position.x = 0;
+    hat1.position.z = 0;
+    head.add(hat1);
+    // add mouth to the scene 
+    cubeMaterial = new LambertMaterial({ color: 0x000000 });
+    cubeGeometry = new CubeGeometry(0.25, 0.25, 1);
+    mouth = new Mesh(cubeGeometry, cubeMaterial);
+    mouth.castShadow = true;
+    mouth.receiveShadow = true;
+    mouth.position.y = -0.25;
+    mouth.position.x = 0.75;
+    mouth.position.z = 0;
+    head.add(mouth);
+    // part of letter on the t-shirt added
+    cubeMaterial = new LambertMaterial({ color: 0xFF0FFF });
+    cubeGeometry = new CubeGeometry(0.25, 2.5, 0.5);
+    letter1 = new Mesh(cubeGeometry, cubeMaterial);
+    letter1.castShadow = true;
+    letter1.receiveShadow = true;
+    letter1.position.y = 0;
+    letter1.position.x = 0.5;
+    letter1.position.z = -0.85;
+    cube.add(letter1);
+    // part of letter on the t-shirt added
+    cubeMaterial = new LambertMaterial({ color: 0xFF0FFF });
+    cubeGeometry = new CubeGeometry(0.25, 2.5, 0.5);
+    letter2 = new Mesh(cubeGeometry, cubeMaterial);
+    letter2.castShadow = true;
+    letter2.receiveShadow = true;
+    letter2.position.y = 0;
+    letter2.position.x = 0.5;
+    letter2.position.z = 0.85;
+    cube.add(letter2);
+    // part of letter on the t-shirt added
+    cubeMaterial = new LambertMaterial({ color: 0xFF0FFF });
+    cubeGeometry = new CubeGeometry(0.25, 0.25, 2);
+    letter3 = new Mesh(cubeGeometry, cubeMaterial);
+    letter3.castShadow = true;
+    letter3.receiveShadow = true;
+    letter3.position.y = 0;
+    letter3.position.x = 0.5;
+    letter3.position.z = 0;
+    cube.add(letter3);
     // add a left leg to the scene
     cubeMaterial = new LambertMaterial({ color: 0x3B3B3B });
     cubeGeometry = new CubeGeometry(1, 2, 1);

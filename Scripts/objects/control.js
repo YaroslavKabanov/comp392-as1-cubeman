@@ -16,6 +16,8 @@ var objects;
             rLeg.material.setValues({ color: Math.floor(Math.random() * 16777215) });
             lArm.material.setValues({ color: Math.floor(Math.random() * 16777215) });
             rArm.material.setValues({ color: Math.floor(Math.random() * 16777215) });
+            hat.material.setValues({ color: Math.floor(Math.random() * 16777215) });
+            hat1.material.setValues({ color: Math.floor(Math.random() * 16777215) });
         };
         Control.prototype.returnColors = function () {
             cube.material.setValues({ color: 0x5F43E7 });
@@ -24,6 +26,8 @@ var objects;
             rLeg.material.setValues({ color: 0x3B3B3B });
             lArm.material.setValues({ color: 0xE7AED0 });
             rArm.material.setValues({ color: 0xE7AED0 });
+            hat.material.setValues({ color: 0xFF0000 });
+            hat1.material.setValues({ color: 0xFF0000 });
         };
         Control.prototype.stopRotations = function () {
             this.rotationSpeedx = 0;

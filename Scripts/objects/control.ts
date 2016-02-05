@@ -24,6 +24,8 @@ module objects {
               rLeg.material.setValues({color: Math.floor(Math.random()*16777215)});
               lArm.material.setValues({color: Math.floor(Math.random()*16777215)});
               rArm.material.setValues({color: Math.floor(Math.random()*16777215)});
+              hat.material.setValues({color: Math.floor(Math.random()*16777215)});
+              hat1.material.setValues({color: Math.floor(Math.random()*16777215)});
          }
          
          public returnColors (): void {
@@ -33,6 +35,9 @@ module objects {
              rLeg.material.setValues({color:0x3B3B3B});
              lArm.material.setValues({color:0xE7AED0});
              rArm.material.setValues({color:0xE7AED0});
+             hat.material.setValues({color:0xFF0000});
+             hat1.material.setValues({color:0xFF0000});
+             
              
          }
          
