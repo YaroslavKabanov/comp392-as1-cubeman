@@ -186,6 +186,8 @@ function addControl(controlObject: Control): void {
     gui.add(controlObject, 'rotationSpeedx', -0.5,0.5);
     gui.add(controlObject, 'rotationSpeedy', -0.5,0.5);
     gui.add(controlObject, 'rotationSpeedz', -0.5,0.5);
+    gui.add(controlObject, 'changeColorsToRandom');
+    gui.add(controlObject, 'returnColors');
 
 }
 
