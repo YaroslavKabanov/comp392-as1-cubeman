@@ -1,6 +1,16 @@
 /// <reference path="_reference.ts"/>
 
-// MAIN GAME FILE
+// ********************************************
+// * Source file : game.ts                    *
+// * Author name : Yaroslav Kabanov           *
+// * Last Modified by : Yaroslav Kabanov      *
+// * Last Date Modified : February 5th, 2016  *
+// * Program Description : Three.js rotating  *
+// * cube-man. Player can change rotation     *
+// * speed and change color of the cubes.     *
+// ********************************************    
+
+
 
 // THREEJS Aliases
 import Scene = THREE.Scene;
@@ -66,30 +76,27 @@ function init() {
     // add an axis helper to the scene
     axes = new AxisHelper(30);
     scene.add(axes);
-    console.log("Added Axis Helper to scene...");
     
     //Add a Plane to the Scene
     plane = new gameObject(
         new PlaneGeometry(20, 20, 1, 1),
-        new LambertMaterial({ color: 0xe79b61 }),
+        new LambertMaterial({ color: 0xFF67CE }),
         0, 0, 0);
 
     plane.rotation.x = -0.5 * Math.PI;
 
     scene.add(plane);
-    console.log("Added Plane Primitive to scene...");
     
-    //Add a Cube to the Scene
+    //Add a cube body to the Scene
     cubeMaterial = new LambertMaterial({color:0x5F43E7});
     cubeGeometry = new CubeGeometry(1 ,4 , 3);
     cube = new Mesh(cubeGeometry, cubeMaterial);
     cube.castShadow = true;
     cube.receiveShadow = true;
     cube.position.y = 4;    
-    
     scene.add(cube);
 
-    
+    // add a head to the scene 
     cubeMaterial = new LambertMaterial({color:0x2DE7B4});
     cubeGeometry = new CubeGeometry(1.5, 2, 2);
     head = new Mesh(cubeGeometry, cubeMaterial);
@@ -97,9 +104,9 @@ function init() {
     head.receiveShadow = true;
     head.position.y = 3;
     head.position.x = 0.25;
-    
     cube.add(head);
     
+    // add a left leg to the scene
     cubeMaterial = new LambertMaterial({color:0x3B3B3B});
     cubeGeometry = new CubeGeometry(1, 2, 1);
     lLeg = new Mesh(cubeGeometry, cubeMaterial);
@@ -107,21 +114,19 @@ function init() {
     lLeg.receiveShadow = true;
     lLeg.position.z = -1;
     lLeg.position.y = -3;
-    
     cube.add(lLeg);
     
-    
+      // add a right leg to the scene
     cubeMaterial = new LambertMaterial({color:0x3B3B3B});
     cubeGeometry = new CubeGeometry(1, 2, 1);
     rLeg = new Mesh(cubeGeometry, cubeMaterial);
     rLeg.castShadow = true;
     rLeg.receiveShadow = true;
     rLeg.position.z = 1;
-    rLeg.position.y = -3;
-    
-    
+    rLeg.position.y = -3;   
     cube.add(rLeg);
 
+    // add a right arm to the scene 
     cubeMaterial = new LambertMaterial({color:0xE7AED0});
     cubeGeometry = new CubeGeometry(1, 1, 2);
     rArm = new Mesh(cubeGeometry, cubeMaterial);
@@ -129,17 +134,16 @@ function init() {
     rArm.receiveShadow = true;
     rArm.position.z = 2.5;
     rArm.position.y = 1.5;
-    
     cube.add(rArm);
     
+    // add a left arm to the scene
     cubeMaterial = new LambertMaterial({color:0xE7AED0});
     cubeGeometry = new CubeGeometry(1, 1, 2);
     lArm = new Mesh(cubeGeometry, cubeMaterial);
     lArm.castShadow = true;
     lArm.receiveShadow = true;
     lArm.position.z = -2.5;
-    lArm.position.y = 1.5;
-    
+    lArm.position.y = 1.5; 
     cube.add(lArm);
     
     
@@ -147,7 +151,6 @@ function init() {
     // Add an AmbientLight to the scene
     ambientLight = new AmbientLight(0x090909);
     scene.add(ambientLight);
-    console.log("Added an Ambient Light to Scene");
 	
     // Add a SpotLight to the scene
     spotLight = new SpotLight(0xffffff);
@@ -156,16 +159,12 @@ function init() {
     spotLight.castShadow = true;
     spotLight.intensity = 1;
     scene.add(spotLight);
-    console.log("Added a SpotLight Light to Scene");
     
     // add controls
     gui = new GUI();
     control = new Control(0.05);
     addControl(control);
     
-   
-
-
 
     // Add framerate stats
     addStatsObject();
@@ -178,13 +177,11 @@ function init() {
 }
 
 function onResize(): void {
-  //  camera.aspect = CScreen.RATIO;
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
- //   renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setSize(CScreen.WIDTH, CScreen.HEIGHT);
 }
-
+    // add control function
 function addControl(controlObject: Control): void {
     gui.add(controlObject, 'rotationSpeedx', -0.5,0.5);
     gui.add(controlObject, 'rotationSpeedy', -0.5,0.5);
@@ -222,16 +219,13 @@ function setupRenderer(): void {
   //  renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setSize(CScreen.WIDTH, CScreen.HEIGHT);
     renderer.shadowMap.enabled = true;
-    console.log("Finished setting up Renderer...");
 }
 
 // Setup main camera for the scene
 function setupCamera(): void {
     camera = new PerspectiveCamera(45, CScreen.RATIO, 0.1, 1000);
-  //  camera = new PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.x = 20;
     camera.position.y = 20;
     camera.position.z = 0;
     camera.lookAt(new Vector3(0, 0, 0));
-    console.log("Finished setting up Camera...");
 }
