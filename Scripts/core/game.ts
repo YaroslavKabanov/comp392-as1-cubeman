@@ -301,7 +301,7 @@ function init() {
     
     // add controls
     gui = new GUI();
-    control = new Control(0.02);
+    control = new Control(0.00001);
     addControl(control);
     
 
@@ -361,14 +361,13 @@ function gameLoop(): void {
 function setupRenderer(): void {
     renderer = new Renderer();
     renderer.setClearColor(0xEEEEEE, 1.0);
-  //  renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setSize(CScreen.WIDTH, CScreen.HEIGHT);
+    renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.shadowMap.enabled = true;
 }
 
 // Setup main camera for the scene
 function setupCamera(): void {
-    camera = new PerspectiveCamera(45, CScreen.RATIO, 0.1, 1000);
+    camera = new PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.x = 20;
     camera.position.y = 20;
     camera.position.z = 0;
