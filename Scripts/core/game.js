@@ -274,7 +274,7 @@ function addControl(controlObject) {
     gui.add(controlObject, 'rotationSpeedy', -0.5, 0.5); // change rotation speed by Y axe
     gui.add(controlObject, 'rotationSpeedz', -0.5, 0.5); // change rotation speed by Z axe
     gui.add(controlObject, 'changeColorsToRandom'); // change preseted to random colors of  
-    //all cubes except letter on the t-shirt and face
+    //all cubes except letter on the t-shirt, mustache and face
     gui.add(controlObject, 'returnColors'); // return cube's color to preseted
     gui.add(controlObject, 'stopRotations'); // stop cubeman rotation
     gui.add(controlObject, 'defaultRotations'); // reset default rotation speed
