@@ -8,6 +8,7 @@ module objects {
        public rotationSpeedx:number;
        public rotationSpeedy:number;
        public rotationSpeedz:number;
+      
        
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++
         constructor(rotationSpeed:number) {

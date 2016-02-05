@@ -54,11 +54,11 @@ function init() {
     setupRenderer(); // setup the default renderer
     setupCamera(); // setup the camera
     // add an axis helper to the scene
-    axes = new AxisHelper(10);
+    axes = new AxisHelper(30);
     scene.add(axes);
     console.log("Added Axis Helper to scene...");
     //Add a Plane to the Scene
-    plane = new gameObject(new PlaneGeometry(16, 16, 1, 1), new LambertMaterial({ color: 0xe79b61 }), 0, 0, 0);
+    plane = new gameObject(new PlaneGeometry(20, 20, 1, 1), new LambertMaterial({ color: 0xe79b61 }), 0, 0, 0);
     plane.rotation.x = -0.5 * Math.PI;
     scene.add(plane);
     console.log("Added Plane Primitive to scene...");
@@ -116,9 +116,10 @@ function init() {
     console.log("Added an Ambient Light to Scene");
     // Add a SpotLight to the scene
     spotLight = new SpotLight(0xffffff);
-    spotLight.position.set(5.6, 23.1, 5.4);
-    spotLight.rotation.set(-0.8, 42.7, 19.5);
+    spotLight.position.set(80, 40, 60);
+    spotLight.rotation.set(0, 0, 0);
     spotLight.castShadow = true;
+    spotLight.intensity = 1;
     scene.add(spotLight);
     console.log("Added a SpotLight Light to Scene");
     // add controls
@@ -157,6 +158,7 @@ function gameLoop() {
     stats.update();
     cube.rotation.x += control.rotationSpeedx;
     cube.rotation.y += control.rotationSpeedy;
+    cube.rotation.z += control.rotationSpeedz;
     // render using requestAnimationFrame
     requestAnimationFrame(gameLoop);
     // render the scene
@@ -175,9 +177,9 @@ function setupRenderer() {
 function setupCamera() {
     camera = new PerspectiveCamera(45, CScreen.RATIO, 0.1, 1000);
     //  camera = new PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.x = 0.6;
-    camera.position.y = 16;
-    camera.position.z = -20.5;
+    camera.position.x = 20;
+    camera.position.y = 20;
+    camera.position.z = 0;
     camera.lookAt(new Vector3(0, 0, 0));
     console.log("Finished setting up Camera...");
 }
