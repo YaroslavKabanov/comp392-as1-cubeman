@@ -16,7 +16,7 @@ module objects {
            this.rotationSpeedy = rotationSpeed;
            this.rotationSpeedz = rotationSpeed;
         }
-        
+        // change cube's colors to random colors, except few cubs 
          public changeColorsToRandom(): void {
               cube.material.setValues({color: Math.floor(Math.random()*16777215)});
               head.material.setValues({color: Math.floor(Math.random()*16777215)});
@@ -27,7 +27,7 @@ module objects {
               hat.material.setValues({color: Math.floor(Math.random()*16777215)});
               hat1.material.setValues({color: Math.floor(Math.random()*16777215)});
          }
-         
+         // return preseted colors 
          public returnColors (): void {
              cube.material.setValues({color:0x5F43E7});
              head.material.setValues({color:0x2DE7B4});
@@ -40,14 +40,14 @@ module objects {
              
              
          }
-         
+         // stop cube's rotation
          public stopRotations():void {
              this.rotationSpeedx = 0;
              this.rotationSpeedy = 0;
              this.rotationSpeedz = 0;
          }
          
-         
+         // make rotation speed default 
          public defaultRotations(): void {
              gui.__controllers[0].setValue(0.02);
              gui.__controllers[1].setValue(0.02);

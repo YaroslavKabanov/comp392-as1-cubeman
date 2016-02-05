@@ -9,6 +9,7 @@ var objects;
             this.rotationSpeedy = rotationSpeed;
             this.rotationSpeedz = rotationSpeed;
         }
+        // change cube's colors to random colors, except few cubs 
         Control.prototype.changeColorsToRandom = function () {
             cube.material.setValues({ color: Math.floor(Math.random() * 16777215) });
             head.material.setValues({ color: Math.floor(Math.random() * 16777215) });
@@ -19,6 +20,7 @@ var objects;
             hat.material.setValues({ color: Math.floor(Math.random() * 16777215) });
             hat1.material.setValues({ color: Math.floor(Math.random() * 16777215) });
         };
+        // return preseted colors 
         Control.prototype.returnColors = function () {
             cube.material.setValues({ color: 0x5F43E7 });
             head.material.setValues({ color: 0x2DE7B4 });
@@ -29,11 +31,13 @@ var objects;
             hat.material.setValues({ color: 0xFF0000 });
             hat1.material.setValues({ color: 0xFF0000 });
         };
+        // stop cube's rotation
         Control.prototype.stopRotations = function () {
             this.rotationSpeedx = 0;
             this.rotationSpeedy = 0;
             this.rotationSpeedz = 0;
         };
+        // make rotation speed default 
         Control.prototype.defaultRotations = function () {
             gui.__controllers[0].setValue(0.02);
             gui.__controllers[1].setValue(0.02);
