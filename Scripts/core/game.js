@@ -133,7 +133,7 @@ function init() {
     scene.add(spotLight);
     // add controls
     gui = new GUI();
-    control = new Control(0.05);
+    control = new Control(0.02);
     addControl(control);
     // Add framerate stats
     addStatsObject();
@@ -154,6 +154,8 @@ function addControl(controlObject) {
     gui.add(controlObject, 'rotationSpeedz', -0.5, 0.5);
     gui.add(controlObject, 'changeColorsToRandom');
     gui.add(controlObject, 'returnColors');
+    gui.add(controlObject, 'stopRotations');
+    gui.add(controlObject, 'defaultRotations');
 }
 function addStatsObject() {
     stats = new Stats();

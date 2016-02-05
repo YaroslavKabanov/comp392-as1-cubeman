@@ -162,7 +162,7 @@ function init() {
     
     // add controls
     gui = new GUI();
-    control = new Control(0.05);
+    control = new Control(0.02);
     addControl(control);
     
 
@@ -188,6 +188,9 @@ function addControl(controlObject: Control): void {
     gui.add(controlObject, 'rotationSpeedz', -0.5,0.5);
     gui.add(controlObject, 'changeColorsToRandom');
     gui.add(controlObject, 'returnColors');
+    gui.add(controlObject, 'stopRotations');
+    gui.add(controlObject, 'defaultRotations');
+    
 
 }
 

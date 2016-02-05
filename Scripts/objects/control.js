@@ -25,6 +25,19 @@ var objects;
             lArm.material.setValues({ color: 0xE7AED0 });
             rArm.material.setValues({ color: 0xE7AED0 });
         };
+        Control.prototype.stopRotations = function () {
+            this.rotationSpeedx = 0;
+            this.rotationSpeedy = 0;
+            this.rotationSpeedz = 0;
+        };
+        Control.prototype.defaultRotations = function () {
+            gui.__controllers[0].setValue(0.02);
+            gui.__controllers[1].setValue(0.02);
+            gui.__controllers[2].setValue(0.02);
+            this.rotationSpeedx = 0.02;
+            this.rotationSpeedy = 0.02;
+            this.rotationSpeedz = 0.02;
+        };
         return Control;
     })();
     objects.Control = Control;

@@ -35,6 +35,23 @@ module objects {
              rArm.material.setValues({color:0xE7AED0});
              
          }
+         
+         public stopRotations():void {
+             this.rotationSpeedx = 0;
+             this.rotationSpeedy = 0;
+             this.rotationSpeedz = 0;
+         }
+         
+         
+         public defaultRotations(): void {
+             gui.__controllers[0].setValue(0.02);
+             gui.__controllers[1].setValue(0.02);
+             gui.__controllers[2].setValue(0.02);
+             
+             this.rotationSpeedx = 0.02;
+             this.rotationSpeedy = 0.02;
+             this.rotationSpeedz = 0.02;
+         }
         //PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++
        
     }
